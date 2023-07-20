@@ -31,6 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  get: ^4.6.5
 
 
   # использование иконок для Cupertino компонентов
