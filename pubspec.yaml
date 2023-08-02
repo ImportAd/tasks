@@ -33,6 +33,8 @@ dependencies:
     sdk: flutter
   
   get: ^4.6.5
+  flutter_screenutil: ^5.8.4
+  google_fonts: ^5.1.0
 
 
   # использование иконок для Cupertino компонентов
