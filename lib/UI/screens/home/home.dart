@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:tasks/config/theme.dart';
 import 'package:tasks/config/colors.dart';
 import 'package:tasks/config/constants.dart';
 import 'package:tasks/UI/widgets/birthday.dart';
@@ -20,32 +19,34 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    final TextTheme textTheme =
+        Theme.of(context).textTheme; // Инициализация темы текста
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
+      // appBar: PreferredSize(
+      //   preferredSize:
+      //       Size.fromHeight(58.0.h), // Установка нужной высоты для Appbar`a
+      //   child:
       appBar: AppBar(
-        title: Center(
-            child: Text(
-          'Задачи сегодня',
-          style: textTheme.titleLarge,
-        )),
         backgroundColor: AppColors.backgroundBlack,
-        // убирает тень от appbar`a
-        elevation: 0,
+        elevation: 0, // убирает тень от appbar`a
+        title: Center(
+            child: Text('Задачи сегодня', // Заголовок страницы
+                style: textTheme.titleLarge)),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(Icons.settings), // Иконка настроек
             onPressed: () => Get.to(const Settings()),
           )
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 16),
+        padding: const EdgeInsets.only(top: 8, left: 15, right: 16, bottom: 16),
         child: Column(
           children: [
-            Column(
+            const Column(
               // ToDo: list builder
-              children: const [
+              children: [
                 TasksToday(
                   summary: AppConstants.testSummary,
                   hashtag: AppConstants.testHashtag,
@@ -79,9 +80,9 @@ class MyHomePage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            Text(
+            const Text(
               "Ближайший день рождения",
-              style: textTheme.titleMedium,
+              //style: textTheme.titleMedium,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 16),
