@@ -6,17 +6,17 @@ class HomPage extends StatelessWidget {
   HomPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromRGBO(21, 28, 35, 1),
-        appBar: const AppBarHome(),
+        backgroundColor: Color.fromRGBO(21, 28, 35, 1),
+        appBar: AppBarHome(),
         body: Column(
           children: [
             TaskContainer(),
             // const NextBirthday(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             // const NextHoliday(),
-            const SizedBox(height: 64),
+            SizedBox(height: 64),
             // const Placeholder(
             //   color: Colors.white,
             //   fallbackHeight: 64,

@@ -1,6 +1,7 @@
 import 'package:d_input/d_input.dart';
 import 'package:flutter/material.dart';
 import 'package:tasks/screens/add_task/Data/DTO.dart';
+import 'package:tasks/screens/home/Presentation/home_screen.dart';
 
 // ToDo: добавить выподающее мень тегов
 // ToDo: добавить управление временем
@@ -57,7 +58,13 @@ class AddTaskScreen extends StatelessWidget {
           ElevatedButton(
             child: const Text('Ну все, все'),
             onPressed: () {
-              DTO(task: task, teg: teg, time: time, description: description);
+              DTO(task: task, teg: teg, time: time, description: description)
+                  .addInBox();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => HomPage(),
+                ),
+              );
             },
           )
         ],
