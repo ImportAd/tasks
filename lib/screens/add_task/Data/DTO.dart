@@ -16,9 +16,13 @@ class DTO {
 
   addInBox() {
     final box = GetStorage();
-    box.write('task', task.text);
-    box.write('teg', teg.text);
-    box.write('time', time.text);
-    box.write('description', description.text);
+    if (box.read('num')) {
+      box.write('num', 0);
+    }
+    int num = box.read('num');
+    num++;
+    final tasks = <String>[task.text, teg.text, time.text, description.text];
+    box.write('num', num);
+    box.write('tasks$num', tasks);
   }
 }
