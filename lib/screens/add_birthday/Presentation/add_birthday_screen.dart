@@ -1,20 +1,19 @@
 import 'package:d_input/d_input.dart';
 import 'package:flutter/material.dart';
-import 'package:tasks/screens/add_task/Data/DTO/DTO.dart';
+import 'package:tasks/screens/add_birthday/Data/DTO/DTO.dart';
 import 'package:tasks/screens/home/Presentation/home_screen.dart';
 
 // ToDo: добавить выподающее мень тегов
 // ToDo: добавить управление временем
 
-class AddTaskScreen extends StatelessWidget {
-  const AddTaskScreen({Key? key}) : super(key: key);
+class AddBirthdayScreen extends StatelessWidget {
+  const AddBirthdayScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final task = TextEditingController();
-    final teg = TextEditingController();
-    final time = TextEditingController();
-    final description = TextEditingController();
+    final name = TextEditingController();
+    final date = TextEditingController();
+    final age = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Добавление задачи'),
@@ -23,29 +22,23 @@ class AddTaskScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         children: [
           DInput(
-            controller: task,
-            hint: 'Картное описание задачи',
+            controller: name,
+            hint: 'Имя',
           ),
           DInput(
-            controller: teg,
-            hint: 'Teg',
+            controller: date,
+            hint: 'День рождения',
           ),
+          // добавить выбыр через календарь
           DInput(
-            controller: time,
-            hint: 'Время выполнения задачи',
+            controller: age,
+            hint: 'Сколько исполнится лет',
             inputType: TextInputType.number,
-          ),
-          DInput(
-            controller: description,
-            minLine: 1,
-            maxLine: 5,
-            hint: 'Полное описание задачи',
           ),
           ElevatedButton(
             child: const Text('Ну все, все'),
             onPressed: () {
-              DTO(task: task, teg: teg, time: time, description: description)
-                  .addInBox();
+              DTO(name: name, date: date, age: age).addInBox();
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const HomPage(),

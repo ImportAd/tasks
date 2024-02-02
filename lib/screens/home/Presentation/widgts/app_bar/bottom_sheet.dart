@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasks/screens/add_birthday/Presentation/add_birthday_screen.dart';
 import 'package:tasks/screens/add_task/Presentation/add_task_screen.dart';
 
 class HomeBottomSheet extends StatelessWidget {
@@ -36,7 +37,13 @@ class HomeBottomSheet extends StatelessWidget {
               ),
             ),
             // переход к другому экрану
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AddBirthdayScreen(),
+                ),
+              );
+            },
           ),
           ElevatedButton(
             child: const Text(

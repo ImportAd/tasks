@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tasks/core/Presentation/widgts/task_single_container.dart';
+import 'package:tasks/core/Presentation/widgts/single_task_container.dart';
 
-class TaskContainer extends StatelessWidget {
-  const TaskContainer({
+class TasksList extends StatelessWidget {
+  const TasksList({
     super.key,
   });
 
@@ -13,16 +13,16 @@ class TaskContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final box = GetStorage();
     // для первого входа в приложение когда еще нет задач
-    if ((box.read('tasks0') == null) || (box.read('num') == null)) {
-      final tasks = <String>['task', 'teg', 'time', ''];
-      final task = jsonEncode(tasks);
-      box.write('num', 0);
-      final taskName = 'tasks${box.read('num')}';
-      box.write(taskName, task);
-      return const Text(
-        "Задач нет",
-        style: TextStyle(
-          color: Colors.white,
+    // проверка есть ли в памяти хоть одна запись
+    // если нет делаем первю тестовую
+    if ((box.read('tasks${box.read('num')}') == null) ||
+        (box.read('num') == null)) {
+      return const Center(
+        child: Text(
+          "Задач нет",
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
       );
     } else {
@@ -32,16 +32,14 @@ class TaskContainer extends StatelessWidget {
         } else {
           final tasksList =
               jsonDecode(box.read('tasks$i').toString()) as List<dynamic>;
-          tasks.add(TaskSingleContainer(
+          tasks.add(SingleTaskContainer(
             task: tasksList[0],
             teg: tasksList[1],
             time: tasksList[2],
           ));
         }
       }
-      return SingleChildScrollView(
-        child: Column(children: tasks),
-      );
+      return Column(children: tasks);
     }
   }
 }

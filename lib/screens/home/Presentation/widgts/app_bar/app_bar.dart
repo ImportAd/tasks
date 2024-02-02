@@ -19,7 +19,8 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
         },
         icon: const Icon(Icons.add_outlined),
       ),
-      title: const Text('Задачи', style: TextStyle(color: Colors.white)),
+      title: const Text('Давайте думать...',
+          style: TextStyle(color: Colors.white)),
     );
   }
 
