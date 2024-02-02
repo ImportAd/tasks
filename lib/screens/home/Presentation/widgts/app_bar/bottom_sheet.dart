@@ -8,34 +8,55 @@ class HomeBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400,
+      width: double.infinity,
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            child: ElevatedButton(
-              child: const Text("Добавить задачу"),
-              // переход к другому экрану
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const AddTaskScreen(),
-                  ),
-                );
-              },
+          ElevatedButton(
+            child: const Text(
+              "Добавить задачу",
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
+            // переход к другому экрану
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AddTaskScreen(),
+                ),
+              );
+            },
           ),
-          Container(
-            child: ElevatedButton(
-              child: const Text("Добавить день рождение"),
-              // переход к другому экрану
-              onPressed: () {},
+          ElevatedButton(
+            child: const Text(
+              "Добавить день рождение",
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
+            // переход к другому экрану
+            onPressed: () {},
           ),
-          Container(
-            child: ElevatedButton(
-              child: const Text("Добавить праздник"),
-              // переход к другому экрану
-              onPressed: () {},
+          ElevatedButton(
+            child: const Text(
+              "Добавить праздник",
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
+            // переход к другому экрану
+            onPressed: () {},
+          ),
+          ElevatedButton(
+            child: const Text(
+              "Просмотр статистики",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            // переход к другому экрану
+            onPressed: () {},
           ),
         ],
       ),
