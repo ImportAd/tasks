@@ -1,6 +1,5 @@
 import 'package:d_input/d_input.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:tasks/screens/add_task/Data/DTO.dart';
 import 'package:tasks/screens/home/Presentation/home_screen.dart';
 
@@ -49,7 +48,7 @@ class AddTaskScreen extends StatelessWidget {
                   .addInBox();
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => HomPage(),
+                  builder: (context) => const HomPage(),
                 ),
               );
             },
