@@ -6,5 +6,5 @@ Future<void> main() async {
   await GetStorage.init();
   final box = GetStorage();
   box.write('description', 'description');
-  runApp(HomPage());
+  runApp(const HomPage());
 }
