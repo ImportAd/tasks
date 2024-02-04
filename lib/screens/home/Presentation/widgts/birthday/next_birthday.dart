@@ -8,31 +8,34 @@ class NextBirthday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Center(
-          child: Text(
-            "Ближайший день рождения",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 140),
+      child: Column(
+        children: [
+          const Center(
+            child: Text(
+              "Ближайший день рождения",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
-        ),
-        // вынести в отдельный виджет
-        // создать лист ближайших денй рождений
-        // сортировать по дате ближайшей к нынешней
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 110),
-          child: InkWell(
-            onTap: () => {
-              // переход на экран задач
-            },
-            child: ListView(children: const [ListBirthday()]),
+          // вынести в отдельный виджет
+          // создать лист ближайших денй рождений
+          // сортировать по дате ближайшей к нынешней
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 110),
+            child: InkWell(
+              onTap: () => {
+                // переход на экран задач
+              },
+              child: ListView(children: const [ListBirthday()]),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

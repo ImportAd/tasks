@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasks/screens/home/Presentation/widgts/holiday/list_holiday.dart';
 
 class NextHoliday extends StatelessWidget {
   const NextHoliday({
@@ -7,37 +8,34 @@ class NextHoliday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Center(
-          child: Text(
-            "Ближайший праздник",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: 140),
+      child: Column(
+        children: [
+          const Center(
+            child: Text(
+              "Ближайший праздник",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 12, top: 8, right: 12),
-          decoration: const BoxDecoration(
-            color: Color.fromRGBO(82, 96, 109, 1),
-            borderRadius: BorderRadius.all(Radius.circular(8)),
-          ),
-          child: const Padding(
-            padding: EdgeInsets.all(8),
-            child: Row(
-              children: [
-                // Expanded(child: Holiday(holiday: "День защитника Отече...")),
-                // DateHoliday(
-                //   date: "23 февраля",
-                // ),
-              ],
+          // вынести в отдельный виджет
+          // создать лист ближайших праздников
+          // сортировать по дате ближайшей к нынешней
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 108), // 110
+            child: InkWell(
+              onTap: () => {
+                // переход на экран праздников
+              },
+              child: ListView(children: const [ListHoliday()]),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

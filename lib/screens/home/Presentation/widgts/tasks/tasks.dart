@@ -8,29 +8,34 @@ class Tasks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Center(
-          child: Text(
-            "Задачи",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxHeight: 240,
+      ),
+      child: Column(
+        children: [
+          const Center(
+            child: Text(
+              "Задачи",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
-        ),
-        // удалять задачи время которых вышло
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 210),
-          child: InkWell(
-            onTap: () => {
-              // переход на экран задач
-            },
-            child: ListView(children: const [TasksList()]),
+          // удалять задачи время которых вышло
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 210),
+            child: InkWell(
+              onTap: () => {
+                // переход на экран задач
+              },
+              child: ListView(children: const [TasksList()]),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

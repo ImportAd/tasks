@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasks/screens/home/Presentation/widgts/birthday/next_birthday.dart';
+import 'package:tasks/screens/home/Presentation/widgts/holiday/next_holiday.dart';
 import 'package:tasks/screens/home/Presentation/widgts/tasks/tasks.dart';
 import 'package:tasks/screens/home/Presentation/widgts/app_bar/app_bar.dart';
 
@@ -13,15 +14,20 @@ class HomPage extends StatelessWidget {
         appBar: AppBarHome(),
         body: Column(
           children: [
-            Tasks(),
-            SizedBox(height: 16),
-            NextBirthday(),
-            SizedBox(height: 16),
-            // const NextHoliday(),
-            // const Placeholder(
-            //   color: Colors.white,
-            //   fallbackHeight: 64,
-            // )
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Tasks(),
+                SizedBox(height: 16),
+                NextBirthday(),
+                SizedBox(height: 16),
+                NextHoliday(),
+                // Placeholder(
+                //   color: Colors.white,
+                //   fallbackHeight: 64,
+                // )
+              ],
+            ),
           ],
         ),
       ),

@@ -15,7 +15,6 @@ class BirthdayContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 8),
-      // padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: const BoxDecoration(
         color: Color.fromRGBO(82, 96, 109, 1),
         borderRadius: BorderRadius.all(Radius.circular(8)),

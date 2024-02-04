@@ -15,10 +15,12 @@ class ListBirthday extends StatelessWidget {
     // для первого входа в приложение когда еще нет дней рождений
     if ((box.read('birthday${box.read('numBirthday')}') == null) ||
         (box.read('numBirthday') == null)) {
-      return const Text(
-        "Дней рождений не добавлено нет",
-        style: TextStyle(
-          color: Colors.white,
+      return const Center(
+        child: Text(
+          "Дней рождений не добавлено нет",
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
       );
     } else {
