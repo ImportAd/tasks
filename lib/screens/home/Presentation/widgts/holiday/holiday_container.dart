@@ -20,7 +20,7 @@ class HolidayContainer extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            NameHoliday(text: name),
+            Expanded(child: NameHoliday(text: name)),
             DateHoliday(date: date),
           ],
         ),

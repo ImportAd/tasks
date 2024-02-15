@@ -23,9 +23,15 @@ class BirthdayContainer extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Name(name: name),
-            Date(date: date),
+            Expanded(child: Name(name: name)),
+            Expanded(child: Date(date: date)),
+            const SizedBox(width: 16),
             Age(age: age),
+            const SizedBox(width: 8),
+            const Text('Год',
+                style: TextStyle(
+                  color: Colors.white,
+                )),
             // Name(name: "Элина"),
             // Date(date: "1 ноября"),
             // Age(age: "22 года"),

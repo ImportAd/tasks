@@ -18,14 +18,14 @@ class DTO {
 
   addInBox() {
     final box = GetStorage();
-    if (box.read('num') == null) {
-      box.write('num', 0);
+    if (box.read('numTask') == null) {
+      box.write('numTask', 0);
     }
-    int num = box.read('num');
+    int num = box.read('numTask');
     num++;
     final tasks = <String>[task.text, teg.text, time.text, description.text];
     String data = jsonEncode(tasks);
-    box.write('num', num);
+    box.write('numTask', num);
     box.write('tasks$num', data);
   }
 }

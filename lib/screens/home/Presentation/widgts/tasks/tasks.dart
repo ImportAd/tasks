@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/screens/home/Presentation/widgts/tasks/task_container.dart';
+import 'package:tasks/screens/home/Presentation/widgts/tasks/list_tasks.dart';
 
 class Tasks extends StatelessWidget {
   const Tasks({
@@ -9,29 +9,35 @@ class Tasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxHeight: 240,
-      ),
+      constraints: const BoxConstraints(maxHeight: 240),
       child: Column(
         children: [
-          const Center(
-            child: Text(
-              "Задачи",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
+          const Expanded(
+            child: Center(
+              child: Text(
+                "Задачи",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
           // удалять задачи время которых вышло
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxHeight: 210),
+          SizedBox(
+            // лучше использовать контейнер
+            height: 210,
             child: InkWell(
               onTap: () => {
-                // переход на экран задач
+                // переход на экран праздников
               },
-              child: ListView(children: const [TasksList()]),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: generateListTasks(),
+                ),
+              ),
             ),
           ),
         ],

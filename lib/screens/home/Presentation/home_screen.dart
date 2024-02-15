@@ -12,23 +12,20 @@ class HomPage extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color.fromRGBO(21, 28, 35, 1),
         appBar: AppBarHome(),
-        body: Column(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Tasks(),
-                SizedBox(height: 16),
-                NextBirthday(),
-                SizedBox(height: 16),
-                NextHoliday(),
-                // Placeholder(
-                //   color: Colors.white,
-                //   fallbackHeight: 64,
-                // )
-              ],
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Tasks(),
+              SizedBox(height: 16),
+              NextBirthday(),
+              SizedBox(height: 16),
+              NextHoliday(),
+              // Placeholder(
+              //   color: Colors.white,
+              //   fallbackHeight: 64,
+              // )
+            ],
+          ),
         ),
       ),
     );

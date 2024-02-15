@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/screens/home/Presentation/widgts/holiday/list_holiday.dart';
+import 'package:tasks/screens/home/Presentation/widgts/holiday/list_holidays.dart';
 
 class NextHoliday extends StatelessWidget {
   const NextHoliday({
@@ -25,13 +25,19 @@ class NextHoliday extends StatelessWidget {
           // вынести в отдельный виджет
           // создать лист ближайших праздников
           // сортировать по дате ближайшей к нынешней
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxHeight: 108), // 110
+          SizedBox(
+            // лучше использовать контейнер
+            height: 108,
             child: InkWell(
               onTap: () => {
                 // переход на экран праздников
               },
-              child: ListView(children: const [ListHoliday()]),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: generateListHolidays(),
+                ),
+              ),
             ),
           ),
         ],
